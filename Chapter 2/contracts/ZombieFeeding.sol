@@ -1,43 +1,42 @@
 pragma solidity ^0.4.19;
-/// @title CryptoZombies Chapter 1
-/// @author H4XF13LD MORRIS 💯💯😎💯💯 (documentation by Rex Hygate)
-// @Github http:\\
-// @SDD ./doc./Crypto
-// @ARCH ./doc/Crpto...
-contract ZombieFactory {
 
-    event NewZombie(uint zombieId, string name, uint dna);
+import "./zombiefactory.sol";
 
-    uint dnaDigits = 16;
-    uint dnaModulus = 10 ** dnaDigits;
+contract KittyInterface {
+  function getKitty(uint256 _id) external view returns (
+    bool isGestating,
+    bool isReady,
+    uint256 cooldownIndex,
+    uint256 nextActionAt,
+    uint256 siringWithId,
+    uint256 birthTime,
+    uint256 matronId,
+    uint256 sireId,
+    uint256 generation,
+    uint256 genes
+  );
+}
 
-    struct Zombie {
-        string name;
-        uint dna;
+contract ZombieFeeding is ZombieFactory {
+
+  address ckAddress = 0x06012c8cf97BEaD5deAe237070F9587f8E7A266d;
+  KittyInterface kittyContract = KittyInterface(ckAddress);
+
+  function feedAndMultiply(uint _zombieId, uint _targetDna, string _species) public {
+    require(msg.sender == zombieToOwner[_zombieId]);
+    Zombie storage myZombie = zombies[_zombieId];
+    _targetDna = _targetDna % dnaModulus;
+    uint newDna = (myZombie.dna + _targetDna) / 2;
+    if (keccak256(abi.encodePacked(_species)) == keccak256(abi.encodePacked("kitty"))) {
+      newDna = newDna - newDna % 100 + 99;
     }
+    _createZombie("NoName", newDna);
+  }
 
-    Zombie[] public zombies;
-// req # Push the Zombie attributes in the zombies struct
-// req # Emit the Zombie id, name and dna
-    function _createZombie(string _name, uint _dna) private {
-        zombies.push(Zombie(_name, _dna));
-        uint id = zombies.push(Zombie(_name, _dna)) - 1;
-        emit NewZombie(id, _name, _dna);
-        // and fire it here
-    } 
-// @req # Generate a pseudo random number from a string which is returned as the dna
-// @req # Throw an error if string length 1 char or less
-// @req # Create id which represents the index of the Zombie in the struct on blockchain
-    function _generateRandomDna(string _str) private view returns (uint) {
-//        require(byte(_str).length > 1, "Name too short");  // New code added for tests
-        uint rand = uint(keccak256(abi.encodePacked(_str)));
-        return rand % dnaModulus;
-    }
-
-// @req # Make Zombie in struct and emit id, name and dna
-    function createRandomZombie(string _name) public {
-        uint randDna = _generateRandomDna(_name);
-        _createZombie(_name, randDna);
-    }
+  function feedOnKitty(uint _zombieId, uint _kittyId) public {
+    uint kittyDna;
+    (,,,,,,,,,kittyDna) = kittyContract.getKitty(_kittyId);
+    feedAndMultiply(_zombieId, kittyDna, "kitty");
+  }
 
 }
