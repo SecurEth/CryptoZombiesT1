@@ -68,23 +68,16 @@
   "source": "pragma solidity ^0.4.19;\r\n/// @title CryptoZombies Chapter 1\r\n/// @author H4XF13LD MORRIS 💯💯😎💯💯 (documentation by Rex Hygate)\r\n// @Github https://github.com/SecurEth/CryptoZombiesT1/Chapter1\r\n// @SDD \"./doc./System Description Document.md\"\r\n// @ARCH ./doc/Crpto...\r\ncontract ZombieFactory {\r\n\r\n    event NewZombie(uint zombieId, string name, uint dna);\r\n\r\n    uint dnaDigits = 16;\r\n    uint dnaModulus = 10 ** dnaDigits;\r\n\r\n    struct Zombie {\r\n        string name;\r\n        uint dna;\r\n    }\r\n\r\n    Zombie[] public zombies;\r\n// req C1_1 Push the Zombie attributes in the zombies struct\r\n// req C1_2 Emit the Zombie id, name and dna\r\n    function _createZombie(string _name, uint _dna) private {\r\n        uint id = zombies.push(Zombie(_name, _dna)) - 1;\r\n        emit NewZombie(id, _name, _dna);\r\n        // and fire it here\r\n    } \r\n// @req C1_3 Generate a pseudo random number from a string which is returned as the dna\r\n// @req C1_4 Throw an error if string length 1 char or less\r\n// @req C1_5 Create id which represents the index of the Zombie in the struct on blockchain\r\n    function _generateRandomDna(string _str) private view returns (uint) {\r\n        require(bytes(_str).length > 1, \"Name too short\");  // New code added for tests\r\n        uint rand = uint(keccak256(abi.encodePacked(_str)));\r\n        return rand % dnaModulus;\r\n    }\r\n\r\n// @req C1_6 Make Zombie in struct and emit id, name and dna\r\n    function createRandomZombie(string _name) public {\r\n        uint randDna = _generateRandomDna(_name);\r\n        _createZombie(_name, randDna);\r\n    }\r\n\r\n}\r\n",
   "sourcePath": "C:\\Users\\Eth Coding\\documents\\github\\cryptozombiest1\\Chapter 1\\contracts\\ZombieFactory.sol",
   "ast": {
-    "absolutePath": "/C/Users/Eth Coding/documents/github/cryptozombiest1/Chapter 1/contracts/ZombieFactory.sol",
+    "absolutePath": "/C/Users/Admin/Documents/GitHub/CryptoZombiesT1/Chapter 1/contracts/ZombieFactory.sol",
     "exportedSymbols": {
-      "ZombieFactory": [
-        159
-      ]
+      "ZombieFactory": [159]
     },
     "id": 160,
     "nodeType": "SourceUnit",
     "nodes": [
       {
         "id": 58,
-        "literals": [
-          "solidity",
-          "^",
-          "0.4",
-          ".19"
-        ],
+        "literals": ["solidity", "^", "0.4", ".19"],
         "nodeType": "PragmaDirective",
         "src": "0:24:1"
       },
@@ -95,9 +88,7 @@
         "documentation": "@title CryptoZombies Chapter 1\r\n @author H4XF13LD MORRIS 💯💯😎💯💯 (documentation by Rex Hygate)\r",
         "fullyImplemented": true,
         "id": 159,
-        "linearizedBaseContracts": [
-          159
-        ],
+        "linearizedBaseContracts": [159],
         "name": "ZombieFactory",
         "nodeType": "ContractDefinition",
         "nodes": [
@@ -423,9 +414,7 @@
               "src": "708:137:1",
               "statements": [
                 {
-                  "assignments": [
-                    90
-                  ],
+                  "assignments": [90],
                   "declarations": [
                     {
                       "constant": false,
@@ -930,10 +919,7 @@
                       "id": 115,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        177,
-                        178
-                      ],
+                      "overloadedDeclarations": [177, 178],
                       "referencedDeclaration": 178,
                       "src": "1175:7:1",
                       "typeDescriptions": {
@@ -960,9 +946,7 @@
                   "src": "1175:49:1"
                 },
                 {
-                  "assignments": [
-                    126
-                  ],
+                  "assignments": [126],
                   "declarations": [
                     {
                       "constant": false,
@@ -1275,9 +1259,7 @@
               "src": "1477:99:1",
               "statements": [
                 {
-                  "assignments": [
-                    147
-                  ],
+                  "assignments": [147],
                   "declarations": [
                     {
                       "constant": false,
@@ -1494,23 +1476,16 @@
     "src": "0:1583:1"
   },
   "legacyAST": {
-    "absolutePath": "/C/Users/Eth Coding/documents/github/cryptozombiest1/Chapter 1/contracts/ZombieFactory.sol",
+    "absolutePath": "/C/Users/Admin/Documents/GitHub/CryptoZombiesT1/Chapter 1/contracts/ZombieFactory.sol",
     "exportedSymbols": {
-      "ZombieFactory": [
-        159
-      ]
+      "ZombieFactory": [159]
     },
     "id": 160,
     "nodeType": "SourceUnit",
     "nodes": [
       {
         "id": 58,
-        "literals": [
-          "solidity",
-          "^",
-          "0.4",
-          ".19"
-        ],
+        "literals": ["solidity", "^", "0.4", ".19"],
         "nodeType": "PragmaDirective",
         "src": "0:24:1"
       },
@@ -1521,9 +1496,7 @@
         "documentation": "@title CryptoZombies Chapter 1\r\n @author H4XF13LD MORRIS 💯💯😎💯💯 (documentation by Rex Hygate)\r",
         "fullyImplemented": true,
         "id": 159,
-        "linearizedBaseContracts": [
-          159
-        ],
+        "linearizedBaseContracts": [159],
         "name": "ZombieFactory",
         "nodeType": "ContractDefinition",
         "nodes": [
@@ -1849,9 +1822,7 @@
               "src": "708:137:1",
               "statements": [
                 {
-                  "assignments": [
-                    90
-                  ],
+                  "assignments": [90],
                   "declarations": [
                     {
                       "constant": false,
@@ -2356,10 +2327,7 @@
                       "id": 115,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        177,
-                        178
-                      ],
+                      "overloadedDeclarations": [177, 178],
                       "referencedDeclaration": 178,
                       "src": "1175:7:1",
                       "typeDescriptions": {
@@ -2386,9 +2354,7 @@
                   "src": "1175:49:1"
                 },
                 {
-                  "assignments": [
-                    126
-                  ],
+                  "assignments": [126],
                   "declarations": [
                     {
                       "constant": false,
@@ -2701,9 +2667,7 @@
               "src": "1477:99:1",
               "statements": [
                 {
-                  "assignments": [
-                    147
-                  ],
+                  "assignments": [147],
                   "declarations": [
                     {
                       "constant": false,
