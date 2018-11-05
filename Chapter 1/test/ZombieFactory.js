@@ -9,7 +9,7 @@ contract("ZombieFactory", function(accounts) {
     tx = await instance.createRandomZombie("text", {
       from: accounts[1]
     });
-    tx = await instance.createRandomZombie("", {
+    tx = await instance.createRandomZombie("t", {
       from: accounts[2]
     });
 /*    assert.equal(tx.logs[0].event, "ActionAddRecord");

@@ -28,7 +28,7 @@ contract ZombieFactory {
 // @req C1_4 Throw an error if string length 1 char or less
 // @req C1_5 Create id which represents the index of the Zombie in the struct on blockchain
     function _generateRandomDna(string _str) private view returns (uint) {
-//        require(byte(_str).length > 1, "Name too short");  // New code added for tests
+        require(bytes(_str).length > 1, "Name too short");  // New code added for tests
         uint rand = uint(keccak256(abi.encodePacked(_str)));
         return rand % dnaModulus;
     }
