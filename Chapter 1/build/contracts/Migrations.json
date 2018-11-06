@@ -73,14 +73,21 @@
   "ast": {
     "absolutePath": "/C/Users/Admin/Documents/GitHub/CryptoZombiesT1/Chapter 1/contracts/Migrations.sol",
     "exportedSymbols": {
-      "Migrations": [56]
+      "Migrations": [
+        56
+      ]
     },
     "id": 57,
     "nodeType": "SourceUnit",
     "nodes": [
       {
         "id": 1,
-        "literals": ["solidity", "^", "0.4", ".24"],
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
         "nodeType": "PragmaDirective",
         "src": "0:24:0"
       },
@@ -91,7 +98,9 @@
         "documentation": null,
         "fullyImplemented": true,
         "id": 56,
-        "linearizedBaseContracts": [56],
+        "linearizedBaseContracts": [
+          56
+        ],
         "name": "Migrations",
         "nodeType": "ContractDefinition",
         "nodes": [
@@ -472,7 +481,9 @@
               "src": "443:122:0",
               "statements": [
                 {
-                  "assignments": [43],
+                  "assignments": [
+                    43
+                  ],
                   "declarations": [
                     {
                       "constant": false,
@@ -712,14 +723,21 @@
   "legacyAST": {
     "absolutePath": "/C/Users/Admin/Documents/GitHub/CryptoZombiesT1/Chapter 1/contracts/Migrations.sol",
     "exportedSymbols": {
-      "Migrations": [56]
+      "Migrations": [
+        56
+      ]
     },
     "id": 57,
     "nodeType": "SourceUnit",
     "nodes": [
       {
         "id": 1,
-        "literals": ["solidity", "^", "0.4", ".24"],
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
         "nodeType": "PragmaDirective",
         "src": "0:24:0"
       },
@@ -730,7 +748,9 @@
         "documentation": null,
         "fullyImplemented": true,
         "id": 56,
-        "linearizedBaseContracts": [56],
+        "linearizedBaseContracts": [
+          56
+        ],
         "name": "Migrations",
         "nodeType": "ContractDefinition",
         "nodes": [
@@ -1111,7 +1131,9 @@
               "src": "443:122:0",
               "statements": [
                 {
-                  "assignments": [43],
+                  "assignments": [
+                    43
+                  ],
                   "declarations": [
                     {
                       "constant": false,
@@ -1354,5 +1376,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-05T15:07:50.296Z"
+  "updatedAt": "2018-11-05T22:14:30.750Z"
 }
