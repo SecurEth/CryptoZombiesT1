@@ -1,9 +1,9 @@
-var ZombieFactorytestContract = artifacts.require("./ZombieFactory");
+var ZombieFeedingtestContract = artifacts.require("./ZombieFactory");
 
-contract("ZombieFactory", function(accounts) {
+contract("ZombieFeeding", function(accounts) {
   // Test req
   it("Launch the contract, Test req C1_6", async function() {
-    let instance = await ZombieFactorytestContract.deployed();
+    let instance = await ZombieFeedingtestContract.deployed();
     let tx = await instance
       .createRandomZombie("text", { from: accounts[0] })
       .then(function(result) {

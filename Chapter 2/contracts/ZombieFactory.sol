@@ -2,7 +2,7 @@ pragma solidity ^0.4.24;
 
 /// @title CryptoZombies Chapter 2
 /// @author H4XF13LD MORRIS 💯💯😎💯💯 (documentation by Rex Hygate)
-// @Github https://github.com/SecurEth/CryptoZombiesT1/Chapter1
+// @Github https://github.com/SecurEth/CryptoZombiesT1/Chapter2
 // @SDD "./doc./System Description Document.md"
 // @ARCH ./doc/Crpto...
 
@@ -42,7 +42,7 @@ contract ZombieFactory {
 
 // @req C1_6 Make Zombie in struct and emit id, name and dna
     function createRandomZombie(string _name) public {
-        require(ownerZombieCount[msg.sender] == 0);
+        require(ownerZombieCount[msg.sender] == 0, "j");
         uint randDna = _generateRandomDna(_name);
         randDna = randDna - randDna % 100;
         _createZombie(_name, randDna);
