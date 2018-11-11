@@ -10,6 +10,8 @@ contract ZombieFactory {
 
     uint dnaDigits = 16;
     uint dnaModulus = 10 ** dnaDigits;
+    uint minNameLength = 1;
+    uint maxNameLength = 15;
 
     struct Zombie {
         string name;
@@ -22,13 +24,13 @@ contract ZombieFactory {
     function _createZombie(string _name, uint _dna) private {
         uint id = zombies.push(Zombie(_name, _dna)) - 1;
         emit NewZombie(id, _name, _dna);
-        // and fire it here
     } 
 // @req C1_3 Generate a pseudo random number from a string which is returned as the dna
 // @req C1_4 Throw an error if string length 1 char or less
 // @req C1_5 Create id which represents the index of the Zombie in the struct on blockchain
     function _generateRandomDna(string _str) private view returns (uint) {
-        require(bytes(_str).length > 1, "Name too short");  // New code added for tests
+        uint len = bytes(_str).length;
+        require( (len> minNameLength && len < maxNameLength), "Name bad length");  // New code added for tests
         uint rand = uint(keccak256(abi.encodePacked(_str)));
         return rand % dnaModulus;
     }
@@ -40,3 +42,4 @@ contract ZombieFactory {
     }
 
 }
+
