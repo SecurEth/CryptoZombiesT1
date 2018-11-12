@@ -19,7 +19,8 @@ contract KittyInterface {
         uint256 matronId,
         uint256 sireId,
         uint256 generation,
-        uint256 genes);
+        uint256 genes
+    );
 }
 
 contract ZombieFeeding is ZombieFactory {
@@ -36,7 +37,9 @@ contract ZombieFeeding is ZombieFactory {
         _zombie.readyTime = uint32(now + cooldownTime);
     }
 
-    KittyInterface kittyContract = KittyInterface(ckAddress);
+    function _isReady(Zombie storage _zombie) internal view returns (bool) {
+        return (_zombie.readyTime <= now);
+    }
 
     // @req C2_2 Mix the dna of the feeding zombie and the targetted kitty to a new dna
     // @req C2_3 If the species variable is "kitty" put a 99 at the end of the dna
