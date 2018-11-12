@@ -11,8 +11,8 @@ contract ZombieFactory {
 
     uint dnaDigits = 16;
     uint dnaModulus = 10 ** dnaDigits;
-    uint storage minNameLength = 1;
-    uint storage maxNameLength = 15;
+    uint minNameLength = 1;
+    uint maxNameLength = 15;
 
     struct Zombie {
         string name;
